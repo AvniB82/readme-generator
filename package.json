@@ -1,0 +1,14 @@
+{
+  "name": "readme-generator",
+  "version": "0.1.0",
+  "description": "A generator fogenerating README files using inquirer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Avni Bicmeti",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  }
+}
