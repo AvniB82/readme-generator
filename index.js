@@ -81,7 +81,8 @@ function generateReadmeContent(answers) {
 function generateReadmeContent(answers) {
   return `
 
-    # ${answers.title}
+    ## title
+     ${answers.title}
 
     ## Description
     ${answers.descritpion}
