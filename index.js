@@ -29,8 +29,8 @@ const promptUser = () =>
     {
       type: 'list',
       name: 'lisence',
-      message: 'Choose lisence.',
-      choice: ['ISC', 'none'],
+      message: 'Choose license.',
+      choices: ['ISC', 'none'],
     },
     {
       type: 'input',
@@ -51,12 +51,60 @@ const promptUser = () =>
 
   // function to write README file
   function writeToFile(fileName, data) {
-  }
-  
-  // function to initialize program
-  function init() {
-  
-  }
-  
-  // function call to initialize program
-  init();
+    writeFileAsync(fileName, data)
+    .then(() => console.log('Successfully wrote to README.md'))
+    .catch((err) => console.error(err));
+}
+
+// function to initialize program
+function init() {
+    promptUser()
+    .then((answers) => {
+      const readmeContent = generateReadmeContent(answers);
+
+      writeToFile('README.md', readmeContent);
+    })
+    .catch((err) => console.error(err));
+}
+
+function generateReadmeContent(answers) {
+    promptUser()
+    .then((answers) => {
+
+      const readmeContent = generateReadmeContent(answers);
+
+      writeToFile('README.md', readmeContent);
+    })
+    .catch((err) => console.error(err));
+}
+
+function generateReadmeContent(answers) {
+  return `
+
+    # ${answers.title}
+
+    ## Description
+    ${answers.descritpion}
+
+    ## Installation
+    ${answers.installation}
+
+    ## Usage
+    ${answers.usage}
+
+    ## License
+    ${answers.lisence}
+
+    ## Contributing
+    ${answers.contributing}
+
+    ## Test
+    ${answers.test}
+
+    ## GitHub
+    [${answers.github}](https://github.com/${answers.github})
+    `;
+}
+
+// function call to initialize program
+init();
